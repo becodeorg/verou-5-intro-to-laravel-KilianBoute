@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,9 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'Index']);
+Route::get('/messages', [MessageController::class, 'Index']);
+Route::post('/messages/create', [MessageController::class, 'submitCreate'])->name('submitCreate');
+Route::get('/messages/create', [MessageController::class, 'showCreate'])->name('showCreate');
 Route::get('/{page}', function ($slug) {
     return (new HomeController())->showPage($slug);
 });

@@ -14,9 +14,10 @@
     <body class="container">
        <p>{{ $greeting }} World</p>
        <div>
-        <a href="page-1">Page 1</a>
+        <a href="messages">Messages</a>
         <a href="page-2">Page 2</a>
        </div>
        
+
     </body>
 </html>
