@@ -12,7 +12,7 @@ class MessageController extends Controller
 
     public function __construct()
     {
-        $this->messages = [new Message(1, 'Message 1'), new Message(2, 'Message 2')];
+        $this->messages = [new Message(1, 'Hello world'), new Message(2, 'Hello world')];
     }
 
     public function index()
@@ -27,7 +27,13 @@ class MessageController extends Controller
 
     public function submitCreate(Request $request)
     {
-        $this->messages[] = new Message(count($this->messages), $request->input('message'));
-        return view("messages", ['messages' => $this->messages, 'success' => 'Form submitted successfully']);
+        $messageContent = $request->input('message');
+        $success = 'Message submitted';
+        if ($messageContent === "Hello world") {
+            $this->messages[] = new Message(count($this->messages), $request->input('message'));
+        } else {
+            $success = 'Please submit \'Hello world\'';
+        }
+        return view("messages", ['messages' => $this->messages, 'success' => $success]);
     }
 }

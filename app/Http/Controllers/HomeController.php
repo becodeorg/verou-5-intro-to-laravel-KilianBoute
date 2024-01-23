@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view("welcome", ['greeting' => 'Hi']);
+        return view("welcome", ['greeting' => 'Hello']);
     }
 
     function showPage($slug)
