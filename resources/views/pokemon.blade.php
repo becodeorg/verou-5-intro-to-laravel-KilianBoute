@@ -14,7 +14,12 @@
 </head>
 
 <body class="container">
-    <p>Page 2</p>
+    <p>Pokemon: </p>
+    <ol>
+        @foreach ($pokemons as $pokemon)
+            <li><span>{{$pokemon->name}} {{$pokemon->type_1}} {{$pokemon->type_2}}<span></li>
+        @endforeach
+    </ol>
     <a href="/">back</a>
 </body>
 

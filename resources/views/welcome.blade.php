@@ -15,7 +15,7 @@
        <p>{{ $greeting }} world</p>
        <div>
         <a href="messages">Messages</a>
-        <a href="page-2">Page 2</a>
+        <a href={{route("showPokemon")}} >Pokemon</a>
        </div>
        
 
