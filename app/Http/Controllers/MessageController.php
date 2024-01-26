@@ -17,12 +17,12 @@ class MessageController extends Controller
 
     public function index()
     {
-        return view("messages", ['messages' => $this->messages]);
+        return view("messages.index", ['messages' => $this->messages]);
     }
 
     public function showCreate()
     {
-        return view("messages", ['messages' => $this->messages]);
+        return view("messages.index", ['messages' => $this->messages]);
     }
 
     public function submitCreate(Request $request)
@@ -34,6 +34,6 @@ class MessageController extends Controller
         } else {
             $success = 'Please submit \'Hello world\'';
         }
-        return view("messages", ['messages' => $this->messages, 'success' => $success]);
+        return view("messages.index", ['messages' => $this->messages, 'success' => $success]);
     }
 }

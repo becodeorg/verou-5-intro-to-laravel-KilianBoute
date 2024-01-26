@@ -16,8 +16,8 @@ use App\Http\Controllers\MessageController;
 |
 */
 
-Route::get('/', [HomeController::class, 'Index']);
-Route::get('/messages', [MessageController::class, 'Index']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/messages', [MessageController::class, 'index'])->name('messages');
 Route::post('/messages/create', [MessageController::class, 'submitCreate'])->name('submitCreate');
 Route::get('/messages/create', [MessageController::class, 'showCreate'])->name('showCreate');
 // Route::get('/{page}', function ($slug) {
