@@ -41,4 +41,22 @@ class MessageController extends Controller
         return redirect()->route('messages')
             ->with('success', 'Post deleted successfully.');
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'content' => 'required|max:255',
+            'user_name' => 'required',
+        ]);
+
+        Message::findOrFail($id)->update($request->all());
+
+        return redirect()->route('messages')
+            ->with('success', 'Post edited successfully');
+    }
+
+    public function edit($id)
+    {
+        return view('messages.edit', ['message' => Message::findOrFail($id)]);
+    }
 }

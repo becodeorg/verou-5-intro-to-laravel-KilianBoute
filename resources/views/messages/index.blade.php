@@ -12,13 +12,18 @@
          <p>Messages</p>
         @foreach ($messages as $message)
             <div><p>{{$message->content}}</p>
-            <p>By: {{$message->user_name}} at {{$message->created_at}}</p>
+            <p>By: {{$message->user_name}} at {{$message->updated_at}}</p>
+            @if($message->created_at != $message->updated_at)
+            <span>*edited*</span>
+            @endif
             </div>
             <form action="{{ route('messages.destroy', $message->id) }}" method="post">
+            
     @csrf
     @method('DELETE')
     <button type="submit" onclick="return confirm('Are you sure you want to delete this message?')">Delete</button>
 </form>
+<a href="{{route('messages.edit', $message->id)}}">Edit</a>
         @endforeach
     </div>
 

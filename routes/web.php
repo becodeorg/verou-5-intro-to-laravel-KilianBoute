@@ -20,6 +20,9 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/messages', [MessageController::class, 'index'])->name('messages');
 Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 Route::delete('/messages/{id}', [MessageController::class, 'destroy'])->name('messages.destroy');
+Route::get('/messages/edit/{id}', [MessageController::class, 'edit'])->name('messages.edit');
+Route::put('/messages/edit/{id}', [MessageController::class, 'update'])->name('messages.update');
+
 
 Route::get('/messages/create', [MessageController::class, 'showCreate'])->name('showCreate');
 // Route::get('/{page}', function ($slug) {
