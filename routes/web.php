@@ -18,7 +18,9 @@ use App\Http\Controllers\MessageController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/messages', [MessageController::class, 'index'])->name('messages');
-Route::post('/messages', [MessageController::class, 'store'])->name('storeMessage');
+Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+Route::delete('/messages/{id}', [MessageController::class, 'destroy'])->name('messages.destroy');
+
 Route::get('/messages/create', [MessageController::class, 'showCreate'])->name('showCreate');
 // Route::get('/{page}', function ($slug) {
 //     return (new HomeController())->showPage($slug);

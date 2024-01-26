@@ -30,4 +30,15 @@ class MessageController extends Controller
         return redirect()->route('messages')
             ->with('success', 'Post created successfully.');
     }
+
+    public function destroy($id)
+    {
+        // $message = Message::find($id);
+        // $message->delete();
+
+        Message::destroy($id);
+
+        return redirect()->route('messages')
+            ->with('success', 'Post deleted successfully.');
+    }
 }
