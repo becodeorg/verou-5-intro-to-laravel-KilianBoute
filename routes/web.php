@@ -23,4 +23,8 @@ Route::get('/messages/create', [MessageController::class, 'showCreate'])->name('
 // Route::get('/{page}', function ($slug) {
 //     return (new HomeController())->showPage($slug);
 // });
-Route::get("/pokemon", [PokemonController::class, "index"])->name('showPokemon');
+Route::get("/pokemon", [PokemonController::class, "index"])->name('pokemon');
+// Route::get("/pokemon/{pokemon}", [function ($slug) {
+//     return (new PokemonController())->show($slug);
+// }])->name('showPokemon');
+Route::get("/pokemon/{pokemon}", [PokemonController::class, 'show'])->name('showPokemon');

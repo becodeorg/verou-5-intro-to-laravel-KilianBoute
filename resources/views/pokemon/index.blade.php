@@ -17,7 +17,7 @@
     <p>Pokemon: </p>
     <ol>
         @foreach ($pokemons as $pokemon)
-            <li><span>{{$pokemon->name}} {{$pokemon->type_1}} {{$pokemon->type_2}}<span></li>
+            <li><a href={{ route('showPokemon', ['pokemon' => $pokemon->id]) }}>{{$pokemon->name}} </a></li>
         @endforeach
     </ol>
     <a href="/">back</a>
