@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    HOME
+@endsection
+
 @section('content')
     <body class="container">
        <p>{{ $greeting }} world</p>

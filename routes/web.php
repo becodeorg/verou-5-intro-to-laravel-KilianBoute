@@ -28,3 +28,4 @@ Route::get("/pokemon", [PokemonController::class, "index"])->name('pokemon');
 //     return (new PokemonController())->show($slug);
 // }])->name('showPokemon');
 Route::get("/pokemon/{pokemon}", [PokemonController::class, 'show'])->name('showPokemon');
+Route::post("/pokemon/create", [PokemonController::class, "create"])->name("createPokemon");

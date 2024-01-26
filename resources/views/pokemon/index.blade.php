@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    pokemon - index
+@endsection
+
 @section('content')
 <body class="container">
     <p>Pokemon: </p>

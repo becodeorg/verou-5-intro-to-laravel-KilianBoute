@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    pokemon - show
+@endsection
+
 @section('content')
 <body class="container">
     <h2>{{$pokemon->name}}</h2>

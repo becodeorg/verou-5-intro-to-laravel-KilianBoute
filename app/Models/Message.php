@@ -2,24 +2,12 @@
 
 namespace App\Models;
 
-class Message
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Message extends Model
 {
-    private $id;
-    private $content;
+    use HasFactory;
 
-    public function __construct(int $id, string $content)
-    {
-        $this->id = $id;
-        $this->content = $content;
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getContent()
-    {
-        return $this->content;
-    }
+    protected $fillable = ['content', 'timestamp'];
 }

@@ -18,4 +18,9 @@ class PokemonController extends Controller
         $pokemon = Pokemon::findOrFail($id);
         return view('pokemon.show', ['pokemon' => $pokemon]);
     }
+
+    public function create()
+    {
+        $pokemon = new Pokemon();
+    }
 }

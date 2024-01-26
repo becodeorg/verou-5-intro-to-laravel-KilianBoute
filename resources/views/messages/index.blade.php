@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    messages - index
+@endsection
+
 @section('content')
 
 <body class="container">
@@ -7,11 +11,16 @@
     <div>
          <p>Messages</p>
         @foreach ($messages as $message)
-            <p>{{$message->getContent()}}</p>
+            <div><p>{{$message->content}}</p>
+            <p>By: {{$message->user_name}} at {{$message->created_at}}</p>
+            </div>
+            
         @endforeach
     </div>
 
-    <p>New message</p>
+    
+
+    {{-- <p>New message</p>
     <form method="POST" action= {{route("submitCreate")}} class="max-w-sm mx-auto">
         @csrf
         <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
@@ -20,7 +29,7 @@
     </form>
       @if(!empty($success))
         <p>{{$success}}</p>
-        @endif 
+        @endif  --}}
     <a href="/">back</a>
 </body>
 
