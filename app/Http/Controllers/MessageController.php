@@ -18,15 +18,16 @@ class MessageController extends Controller
         return view("messages.index", ['messages' => Message::all()]);
     }
 
-    public function submitCreate(Request $request)
+    public function store(Request $request)
     {
-        $messageContent = $request->input('message');
-        $success = 'Message submitted';
-        if ($messageContent === "Hello world") {
-            $this->messages[] = new Message(count($this->messages), $request->input('message'));
-        } else {
-            $success = 'Please submit \'Hello world\'';
-        }
-        return view("messages.index", ['messages' => $this->messages, 'success' => $success]);
+        $request->validate([
+            'content' => 'required|max:255',
+            'user_name' => 'required',
+        ]);
+
+        Message::create($request->all());
+
+        return redirect()->route('messages')
+            ->with('success', 'Post created successfully.');
     }
 }
